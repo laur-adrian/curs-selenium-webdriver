@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 public class FirstTest {
@@ -22,13 +21,15 @@ public class FirstTest {
 		if(loginButton.isDisplayed()) {
 			if(!(userName.isDisplayed() && pwd.isDisplayed())) {
 				loginButton.click();
-				Thread.sleep(5000);
+				Thread.sleep(1000);
 				if(userName.isDisplayed() && pwd.isDisplayed()) {
-					System.out.println("Login Form is displayed");
+					userName.sendKeys("user");
+					Thread.sleep(1000);
+					pwd.sendKeys("123456");
 				}
 			}
 		}
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		driver.quit();
 	}
 }
